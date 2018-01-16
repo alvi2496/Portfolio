@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180116075717) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "name"
-    t.string "date_of_birth"
+    t.date "date_of_birth"
     t.string "introduction"
     t.text "profile"
     t.text "skills"

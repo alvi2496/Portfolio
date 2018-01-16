@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :name, :introduction, :date_of_birth,
+                :profile, :skills, :job, :website
 
   index do
     selectable_column
@@ -21,6 +22,13 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :name
+      f.input :date_of_birth
+      f.input :introduction
+      f.input :profile
+      f.input :skills
+      f.input :job
+      f.input :website
     end
     f.actions
   end

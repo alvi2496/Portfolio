@@ -34,7 +34,7 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration[5.1]
 
 
       t.string :name
-      t.string :date_of_birth
+      t.date :date_of_birth
       t.string :introduction
       t.text :profile
       t.text :skills
