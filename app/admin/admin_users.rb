@@ -23,7 +23,7 @@ ActiveAdmin.register AdminUser do
       f.input :password
       f.input :password_confirmation
       f.input :name
-      f.input :date_of_birth
+      f.input :date_of_birth, start_year: 1980
       f.input :introduction
       f.input :profile
       f.input :skills
