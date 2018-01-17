@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :work_experiences, only: :index
       resources :educations, only: :index
       resources :projects, only: :index
+      resources :services, only: :index
     end
   end
 end
