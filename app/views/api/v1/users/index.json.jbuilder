@@ -1,7 +1,7 @@
 json.user do
   json.id @user.id
   json.name @user.name
-  json.date_of_birth @user.date_of_birth
+  json.date_of_birth @user.date_of_birth.strftime('%d %B, %y')
   json.introduction @user.introduction
   json.profile @user.profile
   json.skills @user.skills

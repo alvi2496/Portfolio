@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users, only: :index
       resources :skills, only: :index
       resources :work_experiences, only: :index
+      resources :educations, only: :index
     end
   end
 end
