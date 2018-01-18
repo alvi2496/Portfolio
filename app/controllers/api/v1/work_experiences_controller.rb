@@ -1,6 +1,6 @@
 module Api
   module V1
-    class WorkExperiencesController < ApplicationController
+    class WorkExperiencesController < Api::BaseController
       def index
         @work_experiences = WorkExperience.all
       end
