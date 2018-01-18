@@ -1,6 +1,6 @@
 module Api
   module V1
-    class EducationsController < ApplicationController
+    class EducationsController < Api::BaseController
       def index
         @educations = Education.all
       end

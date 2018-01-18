@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :projects, only: :index
       resources :services, only: :index
       resources :contacts, only: :create
+      resources :expertises, only: :index
     end
   end
 end
