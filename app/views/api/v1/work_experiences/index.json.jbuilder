@@ -4,5 +4,5 @@ json.work_experiences @work_experiences do |work_experience|
   json.description work_experience.description
   json.designation work_experience.designation
   json.start_date work_experience.start_date.present? ? work_experience.start_date.strftime('%B %Y') : ''
-  json.end_date work_experience.end_date.present? ? work_experience.end_date.strftime('%B %Y') : ''
+  json.end_date work_experience.end_date.present? ? work_experience.end_date.strftime('%B %Y') : 'Present'
 end
