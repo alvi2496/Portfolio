@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Single Page Login Registration Using Devise · Alvi Mahadi</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Single Page Login Registration Using Devise"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Single Page Login Registration Using Devise · Alvi Mahadi"/><meta property="og:type" content="website"/><meta property="og:url" content="https://alvi2496.github.io/blog/2018/01/24/siplor"/><meta property="og:description" content="## Single Page Login Registration Using Devise"/><meta property="og:image" content="https://alvi2496.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://alvi2496.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://alvi2496.github.io/blog/atom.xml" title="Alvi Mahadi Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://alvi2496.github.io/blog/feed.xml" title="Alvi Mahadi Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Alvi Mahadi"/><h2 class="headerTitleWithLogo">Alvi Mahadi</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/about/technical_skills" target="_self">About</a></li><li class=""><a href="/docs/publications/saner2019" target="_self">Publications</a></li><li class="siteNavGroupActive"><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/help" target="_self">Contact</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/blog/2020/06/05/colab-backend">Use google compute engine as google colab backend</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/08/22/pyenvilder">Build flexible and scalable python environment</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/blog/2018/01/24/siplor">Single Page Login Registration Using Devise</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2018/01/24/siplor">Single Page Login Registration Using Devise</a></h1><p class="post-meta">January 24, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://twitter.com/AlviUtsab" target="_blank" rel="noreferrer noopener">Alvi Mahadi</a></p></div></header><div><span><h2><a class="anchor" aria-hidden="true" id="single-page-login-registration-using-devise"></a><a href="#single-page-login-registration-using-devise" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Single Page Login Registration Using Devise</h2>
+<p>See it working at <a href="https://single-page-signup-signin.herokuapp.com/">https://single-page-signup-signin.herokuapp.com/</a></p>
+<p>A demo application for single page login registration using devise and without overriding any devise standard controller methods (index, new, show, edit, delete, destroy)</p>
+<!--truncate-->
+<h3><a class="anchor" aria-hidden="true" id="steps-to-achieve-it"></a><a href="#steps-to-achieve-it" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STEPS to ACHIEVE IT</h3>
+<ol>
+<li>Of course Devise will have to be installed in the app. Also it's convenient for the developers to generate the views of devise. It helps to do everybody's favourite task (copy &amp; paste). Generate a user model.</li>
+<li>Generate a controller (in this example <code>dashboards_controller</code>) that can be used as the root directory after authentication. It uses a show method for this task. Set the root path as <code>root to: 'dashboards#show'</code> and append <code>before_action :authenticate_user!</code> to the <code>dashboards_controller</code>. Also it's good to be able to logout. Adding the following code snippet to views/dashboards/show.html.erb does just that.
+<pre><code class="hljs css language-ruby">&lt;h2&gt;Hello &lt;i&gt;&lt;%= @user.email %&gt;&lt;/i&gt;&lt;/h2&gt;
+
+&lt;% if user_signed_in? %&gt;
+   &lt;li&gt;
+      &lt;%= link_to('Logout', destroy_user_session_path, method: :delete) %&gt;
+   &lt;/li&gt;
+&lt;% else %&gt;
+   &lt;li&gt;
+      &lt;%= link_to('Login', new_user_session_path)  %&gt;
+   &lt;/li&gt;
+&lt;% end %&gt;
+</code></pre></li>
+<li>Now the app needs a single controller and view to render the registration and login form. Generate a new controller and view (in this example <code>contents_controller</code> and <code>contents#new</code>). Now copy and paste (cause we love it) the contents of <code>app/views/users/registrations/new.html.erb</code> and <code>app/views/users/sessions/new.html.erb</code> to <code>app/views/contents/new.html.erb</code> (only if you follow me blindly otherwise different) respectively. Now the views should not find resources. To fix this, add following code to <code>app/helpers/contents_helper.rb</code>
+<pre><code class="hljs css language-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">ContentsHelper</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resource_name</span></span>
+    <span class="hljs-symbol">:user</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resource</span></span>
+    @resource <span class="hljs-params">||</span>= User.new
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">devise_mapping</span></span>
+    @devise_mapping <span class="hljs-params">||</span>= Devise.mappings[<span class="hljs-symbol">:user</span>]
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre></li>
+<li>Now some housekeeping stuffs. First of all generate <code>RegistrationsController</code> that inherits <code>Devise::RegistrationsController</code> and <code>SessionsController</code> that inherits <code>Devise::SessionsController</code>. Configure the <code>routes.rb</code> like the following.
+<pre><code class="hljs css language-ruby">Rails.application.routes.draw <span class="hljs-keyword">do</span>
+   root <span class="hljs-symbol">to:</span> <span class="hljs-string">'dashboards#show'</span>
+
+   devise_for <span class="hljs-symbol">:users</span>,
+               <span class="hljs-symbol">controllers:</span> {
+                  <span class="hljs-symbol">registrations:</span> <span class="hljs-string">'registrations'</span>,
+                  <span class="hljs-symbol">sessions:</span> <span class="hljs-string">'sessions'</span>
+               }
+   resources <span class="hljs-symbol">:contents</span>
+<span class="hljs-keyword">end</span>
+</code></pre></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="and-it-is-all-set-to-login-and-register-this-is-that-easy-the-hard-part-begins-now"></a><a href="#and-it-is-all-set-to-login-and-register-this-is-that-easy-the-hard-part-begins-now" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>And it is all set to login and register!!! This is that easy!!!! The hard part begins now.</h4>
+<h4><a class="anchor" aria-hidden="true" id="the-following-cases-should-be-realized-these-are-discussed-and-the-way-to-overcome-them-are-shown-in-the-steps-to-follow"></a><a href="#the-following-cases-should-be-realized-these-are-discussed-and-the-way-to-overcome-them-are-shown-in-the-steps-to-follow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The following cases should be realized. These are discussed and the way to overcome them are shown in the steps to follow.</h4>
+<ol>
+<li>When user logs out, the browser does not get redirected to the <code>content#new</code> rather it is redicted to <code>sessions#new</code>. To Overcome that add the following code to your <code>app/controllers/application_controller.rb</code>
+<pre><code class="hljs css language-ruby">protect_from_forgery <span class="hljs-symbol">with:</span> <span class="hljs-symbol">:exception</span>
+
+private
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">authenticate_user!</span></span>
+  <span class="hljs-keyword">unless</span> user_signed_in?
+    redirect_to new_content_path
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre></li>
+<li>When there is some sort of failure in login process, it does not get redirected to the <code>content#new</code> rather it is redicted to <code>sessions#new</code>. Following steps should overcome it.
+<ol>
+<li>Create <code>lib/custom_failure.rb</code> and add the following code
+<pre><code class="hljs css language-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomFailure</span> &lt; Devise::FailureApp</span>
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">redirect_url</span></span>
+      new_content_path
+   <span class="hljs-keyword">end</span>
+
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">respond</span></span>
+      <span class="hljs-keyword">if</span> http_auth?
+         http_auth
+      <span class="hljs-keyword">else</span>
+         redirect
+      <span class="hljs-keyword">end</span>
+   <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre></li>
+<li>Configure the <code>config/initializers/devise.rb</code> with the following
+<pre><code class="hljs css language-ruby">config.warden <span class="hljs-keyword">do</span> <span class="hljs-params">|manager|</span>
+   manager.failure_app = CustomFailure
+<span class="hljs-keyword">end</span>
+</code></pre></li>
+<li>Lastly, add the library file to the <code>config/application.rb</code>
+<pre><code class="hljs css language-ruby">config.autoload_paths &lt;&lt; Rails.root.join(<span class="hljs-string">'lib'</span>)
+</code></pre></li>
+</ol></li>
+</ol>
+<h5><a class="anchor" aria-hidden="true" id="and-you-are-all-set-to-go"></a><a href="#and-you-are-all-set-to-go" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AND YOU ARE ALL SET TO GO.</h5>
+<h5><a class="anchor" aria-hidden="true" id="i-have-intentionally-left-the-registration-configuration-for-you-to-configure"></a><a href="#i-have-intentionally-left-the-registration-configuration-for-you-to-configure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>I HAVE INTENTIONALLY LEFT THE REGISTRATION CONFIGURATION FOR YOU TO CONFIGURE.</h5>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog/">Recent Posts</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#single-page-login-registration-using-devise">Single Page Login Registration Using Devise</a><ul class="toc-headings"><li><a href="#steps-to-achieve-it">STEPS to ACHIEVE IT</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="Alvi Mahadi" width="66" height="58"/></a><div><h5>Hire Me!</h5><a href="https://www.upwork.com/freelancers/~01a0e6f2c8265b7cb1" target="_blank">Upwork</a><a href="https://www.fiverr.com/amahadi?public_mode=true">Fiverr</a></div><div><h5>Find me</h5><a href="https://twitter.com/AlviUtsab" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://github.com/alvi2496" target="_blank" rel="noreferrer noopener">Github</a><a href="https://www.linkedin.com/in/alvi-mahadi/" target="_blank" rel="noreferrer noopener">Linkedin</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/alvi2496">GitHub</a></div></section><section class="copyright">Copyright © 2020 Alvi Mahadi</section></footer></div></body></html>

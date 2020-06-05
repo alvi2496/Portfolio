@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Build flexible and scalable python environment · Alvi Mahadi</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Documentation to manually build flexible and scalable python environment"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Build flexible and scalable python environment · Alvi Mahadi"/><meta property="og:type" content="website"/><meta property="og:url" content="https://alvi2496.github.io/blog/2018/08/22/pyenvilder"/><meta property="og:description" content="## Documentation to manually build flexible and scalable python environment"/><meta property="og:image" content="https://alvi2496.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://alvi2496.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://alvi2496.github.io/blog/atom.xml" title="Alvi Mahadi Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://alvi2496.github.io/blog/feed.xml" title="Alvi Mahadi Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Alvi Mahadi"/><h2 class="headerTitleWithLogo">Alvi Mahadi</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/about/technical_skills" target="_self">About</a></li><li class=""><a href="/docs/publications/saner2019" target="_self">Publications</a></li><li class="siteNavGroupActive"><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/help" target="_self">Contact</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/blog/2020/06/05/colab-backend">Use google compute engine as google colab backend</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/blog/2018/08/22/pyenvilder">Build flexible and scalable python environment</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/01/24/siplor">Single Page Login Registration Using Devise</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2018/08/22/pyenvilder">Build flexible and scalable python environment</a></h1><p class="post-meta">August 22, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://twitter.com/AlviUtsab" target="_blank" rel="noreferrer noopener">Alvi Mahadi</a></p></div></header><div><span><h2><a class="anchor" aria-hidden="true" id="documentation-to-manually-build-flexible-and-scalable-python-environment"></a><a href="#documentation-to-manually-build-flexible-and-scalable-python-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation to manually build flexible and scalable python environment</h2>
+<p>This documentation demostrate a very flexible way to install python distribution in the local machine. This way of installation allows user to switch beetween various versions of python more conveniently and create different python environment with different dependencies. Also this method solves <a href="https://github.com/pyenv/pyenv-virtualenv/issues/140">This issue with matplotlib and pyenv.</a> So, let's get started........ :grin:</p>
+<!--truncate-->
+<h3><a class="anchor" aria-hidden="true" id="install-pyenv"></a><a href="#install-pyenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install pyenv</h3>
+<p>pyenv is a very efficient tool to install multiple versions of python and let you switch between different version of python for various projects. Without pyenv, it is possible to install only one version of python2 and python3. pyenv allows user to install for exampele: 2.2.3 and 2.2.4 and 3.5.6 and 3.7.0 at the same time. Also you can switch between 3.5.6 and 3.7.0 according to your needs. <strong><em>The following commands will do the trick</em></strong></p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> https://github.com/pyenv/pyenv.git ~/.pyenv</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">'export PYENV_ROOT="$HOME/.pyenv"'</span> &gt;&gt; ~/.bashrc</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">'export PATH="$PYENV_ROOT/bin:$PATH"'</span> &gt;&gt; ~/.bashrc</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> -e <span class="hljs-string">'if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval "$(pyenv init -)"\nfi'</span> &gt;&gt; ~/.bashrc</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">exec</span> <span class="hljs-string">"<span class="hljs-variable">$SHELL</span>"</span></span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="installing-necessary-dependencies"></a><a href="#installing-necessary-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing Necessary Dependencies</h3>
+<p>There are some libraries that is needed to perform various tasks. <code>tkinter</code> is one of the libraries that is a dependency of <code>matplotlib</code> which is used for plotting various distributions. We have to install these dependencies before building our python. Simply running the following code should do it.</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> sudo apt-get install python-tk python3-tk tk-dev</span>
+</code></pre>
+<p>Install the necessary dependencies that you need before and/or after your python build.</p>
+<h3><a class="anchor" aria-hidden="true" id="install-python-using-pyenv"></a><a href="#install-python-using-pyenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install python using pyenv</h3>
+<p>pyenv provides commands to install various versions of python. I would reccomend to use python 3.7.0. This tutorial is shown using python 3.7.0. To install python 3.7.0, execute</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> pyenv install 3.7.0</span>
+</code></pre>
+<p>We need to make this version global so that this version can be accessible anywhere in the system. To do that, execute</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> pyenv global 3.7.0</span>
+</code></pre>
+<p>Now you will see by running <code>$ python -V</code>, it return <code>Python 3.7.0</code> as python 3.7.0 is set to be global and executable anywhere in the system.
+To know more about pyenv and how it works, visit <a href="https://github.com/pyenv/pyenv">Github page of pyenv</a></p>
+<h3><a class="anchor" aria-hidden="true" id="install-virtualenv"></a><a href="#install-virtualenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install virtualenv</h3>
+<p><code>virtualenv</code> is a very convenient tool to create an isolated python environment. All the libraries and dependencies can be packaged together in a folder that is totally independent from the global environment. Also this environment can be activated and deactivated when needed. Installing the <code>virtualenv</code> is as easy as running the following command.</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> sudo pip install virtualenv</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-custom-environment-using-virtualenv"></a><a href="#create-custom-environment-using-virtualenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create custom environment using virtualenv</h3>
+<p>Creating a virtual environment using virtualenv is very straight forward.</p>
+<ul>
+<li>First create a directory for the environment that will packate the while virtual environment including dependencies.</li>
+</ul>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> mkdir Environments/pyenvilder</span>
+</code></pre>
+<p>Name the directory whatever you want instead of <code>pyenvilder</code></p>
+<ul>
+<li>Now run the following command to create a virtual environment named anything you want eg. pyenvilder.</li>
+</ul>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> virtualenv ~/Environments/pyenvilder/</span>
+</code></pre>
+<p>You can see that, this installs pip and wheel in that directory.</p>
+<ul>
+<li>Now execute the following command to <code>activate</code> this environment.</li>
+</ul>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">source</span> ~/Environments/pyenvilder/bin/activate</span>
+</code></pre>
+<p>You can see that there is a <code>(pyenvilder)</code> written before the username of your terminal. It indicates you that, the virtual environment <code>pyenvilder</code> is running.</p>
+<ul>
+<li>To deactivate this environment simply run <code>deactivate</code>. You can see that the <code>(pyenvilder)</code> would have gone.</li>
+</ul>
+<p>To know more about different stuffs about virtualenv, visit their <a href="https://virtualenv.pypa.io/en/stable/installation/">Official Page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="some-observations"></a><a href="#some-observations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Some Observations</h3>
+<p>Now that you have successfully completed all the steps above(Which is a lot!!! :sweat:), let's talk why we took so much trouble to do all this things instead installing python using just <code>$ sudo apt-get install python3</code>. It will get much clearer by going through the following scenarios:</p>
+<h4><a class="anchor" aria-hidden="true" id="scenario-1"></a><a href="#scenario-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scenario #1</h4>
+<p>Suppose you are a python web developer. You use <code>django</code> or <code>Flask</code> for your web development. Now, you have done lets say, Project_A with python version 3.6.0, so you have python 3.6.0 installed in your local workstation. Now you are required to do an project lets say Project_X in python 3.7.0 but you also have to give some support to Project_A, what should you do? Should you uninstall python 3.6.0 and install 3.7.0 for Project_X? It's a bad idea because Project_A may break in the newer version of python. Also it's not quite possible to upgrade Project_A. The solution is <code>pyenv</code>. You can assign different versions of python using pyenv. To demostrate this, let us install another version of <code>python</code> using <code>pyenv</code>. <strong><em>Remember to deactivate the virtualenv.</em></strong></p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> pyenv install 3.6.0</span>
+</code></pre>
+<p>Now let us make two directory from Project_A and Project_X</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> mkdir Project_A</span>
+<span class="hljs-meta">$</span><span class="bash"> mkdir Project_X</span>
+</code></pre>
+<p>Now <code>cd</code> to Project_A and run <code>$ python -V</code>. The command will return <code>Python 3.7.0</code> as python 3.7.0 is set as global. Now run <code>$ pyenv local 3.6.0</code>. Now checking the version by <code>$ python -V</code> will return <code>Python 3.6.0</code>. This directory will now use python 3.6.0. Similarly, if you cd into Project_X, you will find that the python version 3.7.0 is set for this directory. So you can now work on python 3.6.0 in Project_A while you can work in python 3.7.0 in Project_X. It's that convenient.</p>
+<h4><a class="anchor" aria-hidden="true" id="scenario-2"></a><a href="#scenario-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scenario #2</h4>
+<p>Handling dependencies can be a real pain. One dependency can have other dependencies. Much works have been done to manage dependencies. But the versioning problem of dependencies can be a serious problem. Suppose, you need a library named <code>n</code> which depends on <code>m 1.2</code>. But you have an updated version of <code>m</code> let's say <code>m 2.1</code>. If you use <code>m 2.1</code>, your required library named <code>n</code> may not work properly if not work at all. This problem can be solved by using virtual environments using virtualenv. Let's see it working....
+We have a virtual environment named <code>pyenvilder</code> that we built earlier. Let's run it one more time using <code>$ source ~/Environments/pyenvilder/bin/activate</code>. Now let us install <code>matplotlib</code> by using <code>pip</code> running <code>$ pip install matplotlib</code>. Now lets run <code>pip list</code>. We will find something like the following:</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">Package</span>                       <span class="hljs-selector-tag">Version</span>
+<span class="hljs-selector-tag">-----------------------------</span> <span class="hljs-selector-tag">-------</span>
+<span class="hljs-selector-tag">backports</span><span class="hljs-selector-class">.functools-lru-cache</span> 1<span class="hljs-selector-class">.5</span>    
+<span class="hljs-selector-tag">cycler</span>                        0<span class="hljs-selector-class">.10</span><span class="hljs-selector-class">.0</span> 
+<span class="hljs-selector-tag">kiwisolver</span>                    1<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.1</span>  
+<span class="hljs-selector-tag">matplotlib</span>                    2<span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.2</span>  
+<span class="hljs-selector-tag">numpy</span>                         1<span class="hljs-selector-class">.15</span><span class="hljs-selector-class">.0</span> 
+<span class="hljs-selector-tag">pip</span>                           18<span class="hljs-selector-class">.0</span>   
+<span class="hljs-selector-tag">pyparsing</span>                     2<span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.0</span>  
+<span class="hljs-selector-tag">python-dateutil</span>               2<span class="hljs-selector-class">.7</span><span class="hljs-selector-class">.3</span>  
+<span class="hljs-selector-tag">pytz</span>                          2018<span class="hljs-selector-class">.5</span> 
+<span class="hljs-selector-tag">setuptools</span>                    40<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.0</span> 
+<span class="hljs-selector-tag">six</span>                           1<span class="hljs-selector-class">.11</span><span class="hljs-selector-class">.0</span> 
+<span class="hljs-selector-tag">subprocess32</span>                  3<span class="hljs-selector-class">.5</span><span class="hljs-selector-class">.2</span>  
+<span class="hljs-selector-tag">wheel</span>                         0<span class="hljs-selector-class">.31</span><span class="hljs-selector-class">.1</span>
+</code></pre>
+<p>We can find <code>matplotlib</code> installed in the list.
+Now let's get out of the virtual environment by using <code>$ deactivate</code>. We are now in system environment set by <code>pyenv</code>. Now running <code>$ pip list</code> will yeild the following result:</p>
+<pre><code class="hljs">Package    Version
+---------- -------
+pip        <span class="hljs-number">10.0</span><span class="hljs-number">.1</span> 
+setuptools <span class="hljs-number">39.0</span><span class="hljs-number">.1</span>
+</code></pre>
+<p>We can clearly see that, there is no <code>matplotlib</code> installed in this environment. We can build as many virtual environments as we want as per our requirements and needs. This is the beauty of using <code>virtualenv</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="used-libraries"></a><a href="#used-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Used Libraries</h2>
+<ul>
+<li><a href="https://github.com/pyenv/pyenv">pyenv</a></li>
+<li><a href="https://virtualenv.pypa.io/en/stable/installation/">virtualenv</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="author"></a><a href="#author" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Author</h2>
+<ul>
+<li><strong><em>Alvi Mahadi</em></strong> - Owner - <a href="alvi2496@github.io">alvi</a></li>
+<li><strong><em>indrajit</em></strong> - Advisor, Mentor, Contributor - <a href="https://github.com/eendroroy">eendroroy</a></li>
+</ul>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog/">Recent Posts</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#documentation-to-manually-build-flexible-and-scalable-python-environment">Documentation to manually build flexible and scalable python environment</a><ul class="toc-headings"><li><a href="#install-pyenv">Install pyenv</a></li><li><a href="#installing-necessary-dependencies">Installing Necessary Dependencies</a></li><li><a href="#install-python-using-pyenv">Install python using pyenv</a></li><li><a href="#install-virtualenv">Install virtualenv</a></li><li><a href="#create-custom-environment-using-virtualenv">Create custom environment using virtualenv</a></li><li><a href="#some-observations">Some Observations</a></li></ul></li><li><a href="#used-libraries">Used Libraries</a></li><li><a href="#author">Author</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="Alvi Mahadi" width="66" height="58"/></a><div><h5>Hire Me!</h5><a href="https://www.upwork.com/freelancers/~01a0e6f2c8265b7cb1" target="_blank">Upwork</a><a href="https://www.fiverr.com/amahadi?public_mode=true">Fiverr</a></div><div><h5>Find me</h5><a href="https://twitter.com/AlviUtsab" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://github.com/alvi2496" target="_blank" rel="noreferrer noopener">Github</a><a href="https://www.linkedin.com/in/alvi-mahadi/" target="_blank" rel="noreferrer noopener">Linkedin</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/alvi2496">GitHub</a></div></section><section class="copyright">Copyright © 2020 Alvi Mahadi</section></footer></div></body></html>
